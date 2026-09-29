@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Black Hawk War · 1832 — An Illinois Story</title>
+<style>
+:root{
+ --navy:#122038; --navy2:#0e1a2e; --navy3:#1a2c49;
+ --gold:#c79a41; --gold2:#d3a949; --cream:#f3ead4; --white:#fbf4e2;
+ --slate:#9fb0cb; --line:#2c3d5a; --ox:#7d322c;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#0a1220;font-family:Georgia,'Iowan Old Style','Liberation Serif','DejaVu Serif',serif;color:var(--cream);overflow:hidden}
+.sans{font-family:'Segoe UI',Arial,'Liberation Sans',system-ui,sans-serif}
+/* viewport / track */
+.deck{position:fixed;inset:0;overflow:hidden}
+.track{display:flex;height:100%;transition:transform .5s cubic-bezier(.4,.05,.15,1)}
+.slide{min-width:100%;height:100%;display:flex;position:relative;background:var(--navy)}
+.slide::before{content:'';position:absolute;inset:0;background:radial-gradient(1200px 700px at 12% 8%,rgba(199,154,65,.10),transparent 60%);pointer-events:none}
+/* two-column content */
+.col{flex:1;height:100%;padding:clamp(34px,5vw,88px) clamp(30px,5vw,92px);display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;min-width:0}
+.media{width:38%;height:100%;position:relative;flex:none;background:var(--navy2)}
+.media img{width:100%;height:100%;object-fit:cover;display:block}
+.media .slot{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;background:
+ repeating-linear-gradient(45deg,#0e1a2e,#0e1a2e 14px,#101d33 14px,#101d33 28px)}
+.media .slot .in{max-width:80%}
+.media .slot .ic{font-size:44px;color:#33456a}
+.media .slot .lab{font-family:'Segoe UI',Arial,sans-serif;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#7f90ad;margin-top:10px;font-weight:700}
+.media .slot .sub{font-family:'Segoe UI',Arial,sans-serif;font-size:12px;color:#63769a;margin-top:8px;line-height:1.4}
+.media::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,32,56,.6),rgba(18,32,56,0) 20%),linear-gradient(0deg,rgba(14,26,46,.9),transparent 24%);pointer-events:none}
+.media .cap{position:absolute;left:20px;right:20px;bottom:18px;z-index:3;font-family:'Segoe UI',Arial,sans-serif;font-size:12.5px;line-height:1.35;color:#d8cead}
+.spine{width:12px;height:100%;flex:none;background:linear-gradient(var(--gold2),#a97f2f)}
+/* text elements */
+.kick{font-family:'Segoe UI',Arial,sans-serif;font-weight:800;font-size:clamp(13px,1.3vw,17px);letter-spacing:.28em;text-transform:uppercase;color:var(--gold2)}
+.rule{width:96px;height:4px;background:var(--gold);margin:18px 0 22px}
+h1{font-size:clamp(40px,6.6vw,104px);line-height:.95;font-weight:700;color:var(--white);letter-spacing:-.01em}
+h2{font-size:clamp(30px,4.4vw,64px);line-height:1.0;font-weight:700;color:var(--white);letter-spacing:-.01em}
+.sub{font-size:clamp(18px,2.1vw,30px);font-style:italic;color:#cabf9f;margin-top:16px}
+.lead{font-size:clamp(17px,1.7vw,24px);line-height:1.5;color:var(--cream);margin-top:18px}
+.p{font-size:clamp(15px,1.35vw,20px);line-height:1.55;color:#e5dcc4;margin-top:14px}
+ul.b{margin-top:16px;list-style:none;display:flex;flex-direction:column;gap:12px}
+ul.b li{font-size:clamp(15px,1.4vw,21px);line-height:1.5;color:#eadfc6;padding-left:26px;position:relative}
+ul.b li::before{content:'◆';position:absolute;left:0;color:var(--gold2);font-size:.8em;top:.25em}
+ul.b li b{color:var(--white)}
+.ilTag{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;margin-top:22px;background:rgba(199,154,65,.14);border:1px solid var(--gold);color:var(--gold2);
+ font-family:'Segoe UI',Arial,sans-serif;font-weight:800;font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;padding:7px 14px;border-radius:20px}
+.quote{font-size:clamp(24px,3.2vw,46px);line-height:1.25;color:var(--white);font-style:italic;margin-top:10px;text-indent:-.4em}
+.quote + .qby{font-family:'Segoe UI',Arial,sans-serif;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold2);margin-top:18px;font-weight:700}
+.qbox{margin-top:20px;border-left:6px solid var(--gold);background:rgba(255,255,255,.04);padding:16px 20px;font-size:clamp(16px,1.6vw,23px);line-height:1.45;color:var(--white)}
+.stats{display:flex;gap:clamp(14px,2vw,34px);margin-top:26px;flex-wrap:wrap}
+.stat{background:var(--navy2);border:1px solid var(--line);border-top:5px solid var(--gold);border-radius:10px;padding:20px 24px;min-width:150px}
+.stat .n{font-size:clamp(34px,4.4vw,60px);font-weight:700;color:var(--white);line-height:1}
+.stat .l{font-family:'Segoe UI',Arial,sans-serif;font-size:13px;letter-spacing:.04em;color:var(--slate);margin-top:8px;line-height:1.35}
+/* full-width map slide */
+.slide.full .col{flex:1}
+.mapwrap{margin-top:16px;background:var(--cream);border-radius:12px;padding:12px 16px;box-shadow:0 14px 40px rgba(0,0,0,.35);display:flex;flex-direction:column;align-items:center}
+.mapwrap svg{width:100%;max-height:56vh;height:auto;display:block}
+.mapcap{font-family:'Segoe UI',Arial,sans-serif;font-size:13px;color:#5b6b86;margin-top:8px}
+/* footer strip */
+.foot{position:absolute;left:0;right:0;bottom:0;z-index:4;display:flex;justify-content:space-between;align-items:center;
+ padding:12px clamp(24px,4vw,60px);font-family:'Segoe UI',Arial,sans-serif;font-size:13px;letter-spacing:.06em;color:#8ea0bd;
+ background:linear-gradient(transparent,rgba(8,15,26,.55))}
+.foot .fk{color:var(--gold2);font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+/* controls */
+.nav{position:fixed;top:50%;transform:translateY(-50%);z-index:20;width:52px;height:52px;border-radius:50%;
+ background:rgba(14,26,46,.7);border:1px solid var(--line);color:var(--cream);font-size:24px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.15s}
+.nav:hover{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+.nav.prev{left:18px}.nav.next{right:18px}
+.nav[disabled]{opacity:.25;cursor:default;pointer-events:none}
+.hud{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:20;display:flex;align-items:center;gap:14px}
+.dots{display:flex;gap:7px}
+.dot{width:9px;height:9px;border-radius:50%;background:#33456a;border:none;cursor:pointer;padding:0;transition:.15s}
+.dot.on{background:var(--gold2);transform:scale(1.35)}
+.count{font-family:'Segoe UI',Arial,sans-serif;font-size:13px;color:var(--slate);letter-spacing:.1em;min-width:52px;text-align:center}
+@media(max-width:820px){
+ .slide{flex-direction:column}
+ .media{width:100%;height:34%;order:-1}
+ .spine{width:100%;height:8px}
+ .col{padding:22px 24px 60px;justify-content:flex-start}
+ .nav{width:42px;height:42px;font-size:20px}
+}
+@media print{
+ html,body{overflow:visible;height:auto}
+ .deck{position:static}.track{display:block;transform:none!important}
+ .slide{page-break-after:always;height:100vh}
+ .nav,.hud,.hint{display:none}
+}
+</style>
+</head>
+<body>
+<div class="deck"><div class="track" id="track"></div></div>
+<button class="nav prev" id="prev" aria-label="Previous slide">‹</button>
+<button class="nav next" id="next" aria-label="Next slide">›</button>
+<div class="hud"><div class="dots" id="dots"></div><div class="count" id="count"></div></div>
+
+<script>
+/* ---------- SVG: the 1832 campaign, Illinois highlighted ---------- */
+const MAP=`<svg viewBox="0 0 900 470" role="img" aria-label="Map of the 1832 Black Hawk War campaign across Illinois and into Wisconsin">
+<rect width="900" height="470" fill="#f3ead4"/>
+<!-- Michigan Territory (north) -->
+<path d="M300 20 L300 235 L880 235 L880 20 Z" fill="#26436f" opacity=".06"/>
+<text x="600" y="60" font-family="Georgia,serif" font-weight="bold" font-size="19" fill="#3a5178" opacity=".7">MICHIGAN TERRITORY</text>
+<text x="600" y="79" font-family="Segoe UI,Arial,sans-serif" font-size="12" fill="#5a6f92">(today’s Wisconsin)</text>
+<!-- Illinois (south, east of river) highlighted -->
+<path d="M300 235 L300 460 L770 460 L770 235 Z" fill="#c79a41" opacity=".18"/>
+<path d="M300 235 L300 460 L770 460 L770 235 Z" fill="none" stroke="#a97f2f" stroke-width="2" stroke-dasharray="3 4"/>
+<text x="600" y="420" font-family="Georgia,serif" font-weight="bold" font-size="30" fill="#8a6a24" opacity=".85">ILLINOIS</text>
+<text x="600" y="442" font-family="Segoe UI,Arial,sans-serif" font-size="12" fill="#8a6a24">a state since 1818</text>
+<!-- Mississippi River, N–S near x=300 -->
+<path d="M300 20 C284 90 316 150 300 210 C286 280 316 340 300 400 C292 435 300 455 300 470" fill="none" stroke="#7fa7c4" stroke-width="11" opacity=".85"/>
+<text x="272" y="360" font-family="Georgia,serif" font-size="14" fill="#4e7a99" transform="rotate(-90 272 360)">MISSISSIPPI  RIVER</text>
+<!-- west of the river -->
+<text x="70" y="250" font-family="Georgia,serif" font-size="15" fill="#8a9bb2">west of the river</text>
+<text x="70" y="268" font-family="Segoe UI,Arial,sans-serif" font-size="11" fill="#8a9bb2">(where Keokuk’s band went)</text>
+<!-- Rock River, from Saukenuk NE into Illinois -->
+<path d="M300 320 C380 316 430 285 500 262 C540 249 560 225 575 198" fill="none" stroke="#7fa7c4" stroke-width="6" opacity=".8"/>
+<text x="410" y="322" font-family="Georgia,serif" font-size="13" fill="#4e7a99">Rock R.</text>
+<!-- route of the British Band -->
+<defs><marker id="ar" markerWidth="11" markerHeight="11" refX="8" refY="5" orient="auto"><path d="M0 0 L11 5 L0 10 z" fill="#a1322b"/></marker></defs>
+<path d="M300 320 C385 314 445 280 505 260 C560 242 585 210 600 175 C560 150 400 130 320 133" fill="none" stroke="#a1322b" stroke-width="4.5" stroke-dasharray="12 8" marker-end="url(#ar)" opacity=".92"/>
+<!-- numbered points -->
+<g font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#20304a">
+<circle cx="300" cy="320" r="7" fill="#122038"/>
+<text x="120" y="352" font-weight="bold">1 · Saukenuk</text><text x="120" y="368" font-size="11" fill="#4a5b74">(Rock Island, IL) — the crossing, Apr 1832</text>
+<circle cx="505" cy="260" r="6" fill="#a1322b"/>
+<text x="520" y="256" font-weight="bold">2 · Stillman’s Run</text><text x="520" y="272" font-size="11" fill="#4a5b74">May 14 — the truce fired on</text>
+<circle cx="600" cy="175" r="6" fill="#a1322b"/>
+<text x="616" y="171" font-weight="bold">3 · Wisconsin Heights</text><text x="616" y="187" font-size="11" fill="#4a5b74">Jul 21 — the rearguard fight</text>
+<circle cx="303" cy="133" r="8" fill="#7a1f19"/>
+<text x="110" y="120" font-weight="bold" fill="#7a1f19">4 · Bad Axe</text><text x="110" y="136" font-size="11" fill="#4a5b74">Aug 1–2 — the massacre on the river</text>
+</g>
+<text x="20" y="32" font-family="Georgia,serif" font-weight="bold" font-size="16" fill="#122038">THE 1832 CAMPAIGN · from Illinois soil to the Bad Axe</text>
+</svg>`;
+
+/* ---------- slide data ---------- */
+const S=[
+ {type:'title',kick:'Promise &amp; Practice · An Illinois Story',title:'The Black Hawk War',sub:'1832 — the last armed struggle for the land of Illinois',
+  media:{slot:'Black Hawk (Múk-a-tah-mish-o-káh-kaik)',cred:'Portrait by George Catlin, 1832 — public domain (Smithsonian American Art Museum, via Wikimedia Commons).'}},
+
+ {type:'text',kick:'Before the war · the homeland',title:'Saukenuk, on the Rock River',
+  lead:'Where the Rock River meets the Mississippi — at today’s Rock Island, Illinois — stood Saukenuk, one of the largest Native towns in North America, home to the Sauk (Sac) and their Meskwaki (Fox) allies.',
+  paras:['Each spring the Sauk returned from the winter hunt to plant corn in fields that stretched for miles. It was the center of their world — and had been for generations.',
+   'Then settlers began pouring into Illinois, a state only since 1818, and fixed their eyes on that rich river bottomland.'],
+  illinois:true,
+  media:{slot:'Saukenuk / the Rock River country',cred:'Suggested: a period view or map of the Sauk lands — public domain (see the link list).'}},
+
+ {type:'text',kick:'The root of the conflict',title:'The Treaty No One Agreed To',
+  lead:'In 1804 a handful of Sauk men in St. Louis signed away some 50 million acres — nearly all Sauk and Fox land east of the Mississippi — to William Henry Harrison, for about a thousand dollars a year in goods.',
+  paras:['Black Hawk insisted the signers had no authority to sell the nation’s land, that they had been plied with whiskey, and that most Sauk never agreed. To him, the treaty was a fraud.',
+   'The United States treated it as law. That single disputed page is the seed of everything that followed.'],
+  media:{slot:'William Henry Harrison',cred:'Suggested: a period portrait of Gov. William Henry Harrison — public domain (Wikimedia Commons).'}},
+
+ {type:'text',kick:'A nation divided',title:'Black Hawk and Keokuk',
+  lead:'Two Sauk leaders read the future in opposite ways.',
+  bullets:['<b>Keokuk</b>, “the Watchful Fox,” counseled accommodation — and led many Sauk west across the Mississippi to keep the peace and survive.',
+   '<b>Black Hawk</b>, a war leader who had fought beside the British in 1812, refused to abandon Saukenuk. He believed the land was still his people’s by right.'],
+  paras:['By 1831 the U.S. Army had forced Black Hawk’s band across the river. But in the spring of 1832, he decided to go home.'],
+  media:{slot:'Keokuk, “the Watchful Fox”',cred:'Portrait by George Catlin — public domain (Smithsonian American Art Museum, via Wikimedia Commons).'}},
+
+ {type:'stat',kick:'April 1832',title:'The British Band Crosses Back',
+  lead:'Black Hawk led his people back over the Mississippi into Illinois — not a war party, but a migration of families hoping to plant corn once more.',
+  stats:[['~1,100','men, women, children &amp; elders in the band'],['~500','warriors among them'],['0','allied warriors who ultimately came to help']],
+  paras:['He had counted on British support and on the Ho-Chunk and Potawatomi. Almost none came. He was now deep inside Illinois, on land the state claimed, with the U.S. Army gathering behind him.'],
+  illinois:true},
+
+ {type:'map',kick:'The campaign · 1832',title:'A War Fought Across Illinois',
+  lead:'From Saukenuk on the Mississippi, up the Rock River, and north out of the state — the whole first act played out on Illinois ground.',
+  svg:MAP},
+
+ {type:'text',kick:'The Illinois militia',title:'The Governor Calls Out the Militia',
+  lead:'Illinois governor John Reynolds summoned the state militia, and thousands of Illinois volunteers rode out alongside the U.S. Army.',
+  paras:['Among them was a lanky 23-year-old store clerk from New Salem, elected captain of his own company — <b>Abraham Lincoln</b>. He served about eighty days, saw no battle, and later joked that his only bloodshed was against mosquitoes.',
+   'But he helped bury militia dead, and he never forgot it. It was the only military service of his life.'],
+  illinois:true,
+  media:{slot:'Abraham Lincoln, the young Illinoisan',cred:'Earliest known photograph of Lincoln, by N. H. Shepherd, 1846 (14 years after the war) — public domain (Library of Congress, via Wikimedia Commons).'}},
+
+ {type:'text',kick:'May 14, 1832',title:'The Truce That Became a War',
+  lead:'Realizing no help was coming, Black Hawk sent riders out under a white flag to surrender.',
+  paras:['Panicked, undisciplined Illinois militia under Major Isaiah Stillman fired on the truce party, killing several. Black Hawk’s badly outnumbered warriors struck back and routed a militia force many times their size.',
+   'The humiliating collapse was mocked as “Stillman’s Run.” A surrender had been turned — by the militia’s own blunder — into open war, and the frontier erupted in panic.']},
+
+ {type:'text',kick:'Summer 1832',title:'The Long Retreat',
+  lead:'Now Black Hawk’s band ran: north out of Illinois into the Michigan Territory — today’s Wisconsin — the army and militia hunting them as hunger and disease thinned their ranks.',
+  paras:['At Wisconsin Heights on July 21, Black Hawk fought a brilliant rearguard action to get his people across the Wisconsin River. It only delayed the end.',
+   'Starving and exhausted, the band turned back toward the Mississippi, hoping to cross to safety on the western shore.']},
+
+ {type:'text',kick:'August 1–2, 1832',title:'The Bad Axe Massacre',
+  lead:'At the mouth of the Bad Axe River, on the Mississippi, the starving band tried once more to surrender and cross.',
+  paras:['The armed steamboat <i>Warrior</i> and pursuing troops opened fire — on warriors, women, and children alike. Many who reached the far bank were killed by Dakota allies of the United States.',
+   'Of the roughly 1,100 who had crossed into Illinois in April, only about 150 survived. It was less a battle than a slaughter, and it ended the war.'],
+  media:{slot:'The Bad Axe, and the steamboat Warrior',cred:'“1832 Battle of Bad Axe and steamboat Warrior” — public domain (Wikimedia Commons).'}},
+
+ {type:'quote',kick:'The aftermath',title:'A Voice That Survived',
+  quote:'“I loved my towns, my cornfields, and the home of my people. I fought for them.”',qby:'— Black Hawk',
+  paras:['Captured and paraded through eastern cities, Black Hawk was brought before President Andrew Jackson, then dictated the story of his life.',
+   '<i>Life of Black Hawk</i> (1833) became the first Native American autobiography published in the United States — his people’s side of the story, in his own words. He died in Iowa in 1838.']},
+
+ {type:'text',kick:'Illinois’ place in the story',title:'Why Illinois Mattered',
+  bullets:['<b>It happened here.</b> The war was fought across northern Illinois — from Saukenuk at Rock Island up the Rock River — and it broke the last organized Native resistance in the state.',
+   '<b>It opened the land.</b> Victory threw the north of the state and the lead-mining country open to a flood of settlers; within a few years Chicago exploded from a village into a city.',
+   '<b>It gathered an astonishing cast.</b> Through this Illinois campaign passed a future U.S. president (Lincoln), a future Confederate president (Jefferson Davis), a future president and general (Zachary Taylor), and Gen. Winfield Scott.'],
+  illinois:true},
+
+ {type:'text',kick:'Think like a historian',title:'Whose Story Is This?',
+  lead:'The Black Hawk War lasted only fifteen weeks. It cost one people almost everything — and cleared the way for the Illinois we live in today.',
+  qbox:'Was the Black Hawk War a “war” at all — or the removal of a people who were only trying to go home? How should Illinois remember it?',
+  paras:['Tie it to the unit: LAND taken, BELONGING denied, and the machinery of Removal that was clearing the whole continent in these same years.']},
+
+ {type:'credits',kick:'Sources &amp; image credits',title:'Credits',
+  bullets:['Black Hawk &amp; Keokuk portraits — George Catlin, 1832; Smithsonian American Art Museum (public domain).',
+   'Abraham Lincoln, 1846 — N. H. Shepherd; Library of Congress (public domain).',
+   '“1832 Battle of Bad Axe and steamboat Warrior” — Wikimedia Commons (public domain).',
+   '<i>Life of Black Hawk</i> (1833) — the autobiography, dictated by Black Hawk.',
+   'Campaign map — original schematic diagram, ShadowDog Digital Studios (stylized, not to scale).'],
+  paras:['Narrative: ShadowDog Digital Studios · Promise &amp; Practice, U.S. History.']},
+];
+
+/* ---------- render ---------- */
+const track=document.getElementById('track');
+function media(m){
+ if(!m) return '';
+ const inner = m.img
+   ? `<img src="${m.img}" alt="">`
+   : `<div class="slot"><div class="in"><div class="ic">▤</div><div class="lab">Image slot</div><div class="sub">${m.slot}</div></div></div>`;
+ const cap = m.cred ? `<div class="cap">${m.cred}</div>` : '';
+ return `<div class="media">${inner}${cap}</div><div class="spine"></div>`;
+}
+function body(s){
+ let h='';
+ h+=`<div class="kick">${s.kick}</div><div class="rule"></div>`;
+ h+= s.type==='title' ? `<h1>${s.title}</h1>` : `<h2>${s.title}</h2>`;
+ if(s.sub) h+=`<div class="sub">${s.sub}</div>`;
+ if(s.lead) h+=`<div class="lead">${s.lead}</div>`;
+ if(s.quote) h+=`<div class="quote">${s.quote}</div><div class="qby">${s.qby||''}</div>`;
+ if(s.stats){h+='<div class="stats">';s.stats.forEach(x=>h+=`<div class="stat"><div class="n">${x[0]}</div><div class="l">${x[1]}</div></div>`);h+='</div>';}
+ if(s.bullets){h+='<ul class="b">';s.bullets.forEach(b=>h+=`<li>${b}</li>`);h+='</ul>';}
+ if(s.svg){h+=`<div class="mapwrap">${s.svg}<div class="mapcap">Original schematic diagram (ShadowDog Digital Studios). Shapes are stylized, not a true map.</div></div>`;}
+ if(s.qbox) h+=`<div class="qbox">${s.qbox}</div>`;
+ if(s.paras) s.paras.forEach(p=>h+=`<div class="p">${p}</div>`);
+ if(s.illinois) h+=`<div class="ilTag">★ Illinois at the center</div>`;
+ return h;
+}
+S.forEach((s,i)=>{
+ const el=document.createElement('div');
+ el.className='slide'+((s.type==='map'||s.type==='stat'||s.type==='quote'||s.type==='credits'||!s.media)?' full':'');
+ const foot=`<div class="foot"><div class="fk">The Black Hawk War · 1832</div><div>${s.type==='title'?'Swipe or press → to begin':'Promise &amp; Practice · ShadowDog Digital Studios'}</div></div>`;
+ el.innerHTML = `<div class="col">${body(s)}</div>` + (s.media?media(s.media):'') + foot;
+ track.appendChild(el);
+});
+
+/* ---------- carousel controls ---------- */
+let idx=0; const N=S.length;
+const dots=document.getElementById('dots'), count=document.getElementById('count');
+const prev=document.getElementById('prev'), next=document.getElementById('next');
+S.forEach((_,i)=>{const b=document.createElement('button');b.className='dot';b.setAttribute('aria-label','Slide '+(i+1));b.onclick=()=>go(i);dots.appendChild(b);});
+function go(i){idx=Math.max(0,Math.min(N-1,i));track.style.transform='translateX(-'+(idx*100)+'%)';
+ [...dots.children].forEach((d,k)=>d.classList.toggle('on',k===idx));
+ count.textContent=(idx+1)+' / '+N; prev.disabled=idx===0; next.disabled=idx===N-1;}
+prev.onclick=()=>go(idx-1); next.onclick=()=>go(idx+1);
+document.addEventListener('keydown',e=>{
+ if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' ')go(idx+1);
+ else if(e.key==='ArrowLeft'||e.key==='PageUp')go(idx-1);
+ else if(e.key==='Home')go(0); else if(e.key==='End')go(N-1);});
+let x0=null;
+track.addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});
+track.addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>50)go(idx+(dx<0?1:-1));x0=null;},{passive:true});
+go(0);
+</script>
+</body>
+</html>

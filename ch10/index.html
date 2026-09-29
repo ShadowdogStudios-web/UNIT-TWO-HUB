@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch. 10 · Backlash &amp; Broken Promises — Growth &amp; Conflict</title>
+<style>
+:root{
+ --accent:#b1442f;--accent2:#8a1f16;
+ --ink:#1a1a1a;--slate:#5f5f5f;--mut:#8c8c8c;
+ --paper:#ffffff;--bone:#faf8f4;--card:#ffffff;--panel:#faf8f4;--line:#e7e2d8;--hair:#efeae1;
+ /* legacy names kept so inline refs still resolve, remapped to the clean palette */
+ --indigo:#1a1a1a;--indigo2:#b1442f;--oxblood:#8a1f16;--oxblood2:#b1442f;--verm:#b1442f;--amber:#b1442f;
+ --base:17px;
+}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;line-height:1.62;font-size:var(--base);-webkit-font-smoothing:antialiased}
+body.big{--base:20px}
+.disp{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+.seam{height:3px;background:var(--accent)}.seam .f,.seam .s,.seam .k{display:none}
+.topbar{background:#fff;border-bottom:1px solid var(--line);color:var(--ink);padding:11px 18px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;position:sticky;top:0;z-index:20}
+.topbar a{color:var(--accent);text-decoration:none;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:700}
+.topbar .tools button{font:inherit;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#fff;color:var(--accent);border:1px solid var(--accent);border-radius:18px;padding:6px 12px;cursor:pointer;margin-left:6px}
+.topbar .tools button:hover{background:var(--accent);color:#fff}
+/* masthead -> clean white hero */
+.mast{background:#fff;color:var(--ink);position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.mast .inner{max-width:900px;margin:0 auto;padding:52px 22px 38px}
+.mast .kick{font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.mast .no{position:absolute;right:18px;top:-6px;font-weight:200;font-size:190px;color:rgba(177,68,47,.07);line-height:1}
+.mast h1{font-weight:200;text-transform:none;line-height:1.0;font-size:clamp(34px,6.4vw,62px);letter-spacing:-.02em;margin:16px 0 12px;color:var(--ink)}
+.mast .subt{font-size:clamp(15px,2.3vw,19px);color:var(--slate);font-style:normal}
+.mast .threads{margin-top:18px;display:flex;gap:8px;flex-wrap:wrap}
+.mast .threads span{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;background:#fff;border:1px solid var(--line);color:var(--slate);border-radius:20px;padding:5px 12px}
+.mast .dq{margin:22px 0 0;padding:16px 18px;border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;background:var(--panel);font-size:17px;color:var(--ink)}
+.mast .dq b{color:var(--accent);text-transform:uppercase;letter-spacing:.12em;font-size:11px;display:block;margin-bottom:5px;font-weight:700}
+.wrap{max-width:820px;margin:0 auto;padding:30px 20px 44px}
+/* hook -> light panel */
+.hook{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:12px;overflow:hidden;margin-bottom:28px}
+.hook .txt{padding:22px 24px}
+.hook .k{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.hook p{margin:8px 0 0;font-size:18px;color:var(--ink);line-height:1.5}
+/* section */
+.sec{margin:36px 0}
+.sec h2{font-weight:600;text-transform:none;letter-spacing:-.01em;color:var(--ink);font-size:clamp(21px,3vw,28px);margin:0 0 10px;padding-bottom:8px;border-bottom:2px solid var(--accent);display:inline-block}
+.sec.s h2{color:var(--ink)}
+.sec p{margin:13px 0}
+.sec b{color:var(--ink);font-weight:700}
+.pull{font-weight:300;color:var(--ink);font-size:clamp(21px,3.4vw,28px);line-height:1.3;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:20px 0;margin:26px 0;letter-spacing:-.01em}
+/* image plate */
+.plate{margin:18px 0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--card)}
+.plate .slot{background:var(--panel);border-bottom:1px solid var(--line);min-height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;color:var(--slate)}
+.plate .slot .g{font-size:30px;color:var(--accent);opacity:.7}
+.plate .slot .lab{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-top:8px}
+.plate .slot .src{font-size:12px;margin-top:4px;color:var(--mut)}
+.plate img{display:block;width:100%;height:auto}
+.plate .cap{font-size:12.5px;color:var(--mut);padding:11px 16px;line-height:1.4;background:var(--panel)}
+.plate .cap b{font-style:normal;color:var(--accent);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700}
+.svgwrap{margin:18px 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+.svgwrap svg{display:block;width:100%;height:auto}
+.svgwrap .cap{font-size:12.5px;color:var(--mut);margin-top:10px;text-align:center}
+/* activity card */
+.act{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:12px;padding:24px 26px;margin:24px 0}
+.act .ak{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.act h3{font-weight:600;color:var(--ink);font-size:22px;margin:6px 0 4px}
+.act .skill{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);font-weight:700}
+.act p{margin:10px 0}
+/* sort activity */
+.pool{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chipitem{font-size:14.5px;border:1px solid var(--line);background:#fff;border-radius:9px;padding:9px 13px;cursor:pointer;line-height:1.35;transition:border-color .12s,background .12s}
+.chipitem:hover{background:var(--panel);border-color:var(--accent)}
+.chipitem.done{opacity:.4;cursor:default;pointer-events:none}
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+@media(max-width:560px){.cols2{grid-template-columns:1fr}}
+.coltarget{border:2px dashed var(--line);border-radius:10px;min-height:90px;padding:12px}
+.coltarget.promise{border-color:var(--accent)}.coltarget.practice{border-color:#9a9a9a}
+.coltarget .ch{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:8px}
+.coltarget.promise .ch{color:var(--accent)}.coltarget.practice .ch{color:#6b6b6b}
+.placed{font-size:14px;border-radius:8px;padding:8px 11px;margin:6px 0;background:var(--panel);border:1px solid var(--line);display:flex;justify-content:space-between;gap:8px;align-items:center}
+.placed .x{cursor:pointer;color:var(--accent);font-weight:700}
+.placed.right{background:#edf5ee;border-color:#9cc3a2}.placed.wrong{background:#f7ece8;border-color:#d7a89f}
+/* order activity */
+.orderlist{list-style:none;margin:12px 0;padding:0}
+.orderlist li{background:#fff;border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:9px;padding:11px 13px;margin:8px 0;display:flex;align-items:center;gap:10px}
+.orderlist li .mv{margin-left:auto;display:flex;gap:5px}
+.orderlist li button.arrow{font-weight:700;border:1px solid var(--accent);background:#fff;color:var(--accent);border-radius:7px;width:30px;height:30px;cursor:pointer}
+.orderlist li button.arrow:hover{background:var(--accent);color:#fff}
+.orderlist li .yr{font-size:12px;color:var(--mut);min-width:64px}
+.orderlist li.ok{border-left-color:#3f8a56;background:#edf5ee}
+.orderlist li.no{border-left-color:var(--accent);background:#f7ece8}
+/* be the historian */
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:16px 0;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+@media(max-width:560px){.cols{grid-template-columns:1fr}}
+.cols .c{padding:18px 20px}
+.cols .free{background:var(--panel);border-right:3px solid var(--accent)}
+.cols .slave{background:#fff}
+@media(max-width:560px){.cols .free{border-right:none;border-bottom:3px solid var(--accent)}}
+.cols .c .h{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:6px}
+.cols .free .h{color:var(--accent)}.cols .slave .h{color:#6b6b6b}
+.stance{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.stance button{font:inherit;font-size:15px;border:1px solid var(--accent);background:#fff;color:var(--accent);border-radius:9px;padding:10px 15px;cursor:pointer}
+.stance button.sel{background:var(--accent);color:#fff}
+.cer label{display:block;font-weight:700;color:var(--accent);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;margin:14px 0 5px}
+.cer textarea{width:100%;font:inherit;font-size:16px;padding:12px 14px;border:1px solid var(--line);border-radius:9px;min-height:110px;resize:vertical;background:#fff;color:var(--ink)}
+.cer textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 2px rgba(177,68,47,.12)}
+.btn{font:inherit;font-weight:700;letter-spacing:.04em;text-transform:uppercase;font-size:13px;padding:12px 22px;border-radius:9px;border:1px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+.btn:hover{opacity:.9}
+.btn.ghost{background:#fff;color:var(--accent);border-color:var(--accent)}
+.feedback{margin-top:12px;font-size:14.5px;padding:11px 14px;border-radius:9px;display:none}
+.feedback.show{display:block}.feedback.ok{background:#edf5ee;border:1px solid #9cc3a2}.feedback.no{background:#f7ece8;border:1px solid #d7a89f}
+.savenote{font-size:12.5px;color:var(--mut);margin-top:8px}
+.pagenav{display:flex;justify-content:space-between;gap:12px;margin:38px 0 0;flex-wrap:wrap}
+.pagenav a{flex:1;min-width:180px;text-decoration:none;border:1px solid var(--line);border-radius:12px;padding:16px 18px;background:var(--card);color:var(--ink);transition:border-color .12s}
+.pagenav a:hover{border-color:var(--accent)}
+.pagenav a .d{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);font-weight:700}
+.pagenav a .t{font-weight:600;margin-top:4px;color:var(--ink)}
+.pagenav a.next{text-align:right;border-color:var(--line)}
+footer{background:#fff;border-top:1px solid var(--line);color:var(--slate);text-align:center;padding:26px;font-size:12.5px}
+footer .fk{letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:700}
+@media print{.topbar,.tools,.pagenav,footer,.stance,.btn{display:none!important}.seam{display:none}}
+@media(max-width:600px){.topbar{position:static}.mast .inner{padding:38px 18px 28px}}
+</style>
+</head>
+<body>
+<div class="seam"><div class="f"></div><div class="k"></div><div class="s"></div></div>
+<div class="topbar"><a href="U2_SecondHalf_Hub.html">← Unit 2 · Part Two</a><div class="tools"><button id="textSize">A+ Text</button><button id="reset">Reset activities</button></div></div>
+<div class="mast"><div class="no disp">10</div><div class="inner">
+ <div class="kick">Unit 2 · Growth &amp; Conflict · Chapter 10</div>
+ <h1>Backlash &amp; Broken Promises</h1>
+ <div class="subt">The destruction of Reconstruction · 1870–1877</div>
+ <div class="threads"><span>Thread · Belonging</span><span>Thread · Labor</span><span>Skill · Causation</span></div>
+ <div class="dq"><b>Driving question</b>The nation wrote citizenship, equality, and the vote into its own Constitution — and then, deliberately, abandoned the people it had promised to protect. What good is a constitutional promise if a nation loses the will to enforce it?</div>
+</div></div>
+
+<div class="wrap">
+ <div class="hook">
+  <div class="plate" style="margin:0;border:none;border-radius:0">
+   <div class="slot"><div><div class="g">▤</div><div class="lab">Image slot · Klan terror and the assault on the vote</div><div class="src">“Worse than slavery,” Thomas Nast, Harper's Weekly, 1874 — public domain (Library of Congress). From the Figure Links catalog.</div></div></div>
+  </div>
+  <div class="txt"><div class="k">The moment</div>
+   <p>On a dark night in the early 1870s, somewhere in the Reconstruction South, men in hoods rode up to a Black family's cabin to make sure the father never voted again. They were the Ku Klux Klan, and scenes like this played out thousands of times. Their targets were specific and strategic: Black men who had voted, Black officeholders, Black landowners who had grown too independent, the teachers who staffed the freedpeople's schools. They did not ride at random. They rode to make the act of voting so dangerous that people would stop — and often, it worked.</p></div>
+ </div>
+
+ <p>This is the hardest chapter in the unit, because it is the story of a promise deliberately broken. In the last chapter the United States reached higher than it ever had. This chapter is the story of how that <b>promise was strangled</b>: by terror, by fraud, by the exhaustion of the North, and finally by a political bargain that abandoned four million people to their former enslavers for nearly a hundred years.</p><div class="sec"><h2>Terror as Politics</h2><p>The violence was not a side effect of Southern resistance. It <i>was</i> the strategy. Where Black citizens and their white allies held power through the ballot, the only way to take it back was to make voting impossible — and so the counter-revolution turned to <b>organized terror as a political tool</b>. The Klan and its successors assassinated Black political leaders, massacred Black communities, and drove voters from the polls. At <b>Colfax, Louisiana</b>, in 1873, a white mob slaughtered scores of Black men, many after they had surrendered, in one of the bloodiest acts of racial violence in American history.</p><p>For a time the federal government fought back: Congress passed anti-Klan laws and President Grant used federal power to break it in places, arresting and prosecuting members. This mattered, and it saved lives. But suppressing terror across an entire region required sustained will, money, and soldiers — and that commitment, in the North, was running out. The white South understood something crucial: it did not have to win every battle. It only had to outlast the North's willingness to keep fighting. The terror was patient.</p><div class="svgwrap"><svg viewBox="0 0 640 300" role="img" aria-label="The collapse of Reconstruction">
+<rect width="640" height="300" fill="#fbf6ea"/>
+<line x1="70" y1="70" x2="70" y2="250" stroke="#6b6154" stroke-width="1.5"/>
+<line x1="70" y1="250" x2="600" y2="250" stroke="#6b6154" stroke-width="1.5"/>
+<path d="M90 96 C220 96 300 150 430 210 C500 240 540 246 585 248" fill="none" stroke="#b1442f" stroke-width="4"/>
+<circle cx="90" cy="96" r="5" fill="#6b7a8a"/><text x="86" y="86" font-family="Arial" font-size="10.5" font-weight="bold" fill="#6b7a8a">the promise, 1870</text>
+<circle cx="205" cy="112" r="4.5" fill="#b1442f"/><text x="150" y="130" font-family="Arial" font-size="10.5" fill="#b1442f">Klan terror</text>
+<circle cx="300" cy="150" r="4.5" fill="#b1442f"/><text x="255" y="142" font-family="Arial" font-size="10.5" fill="#b1442f">Colfax, 1873</text>
+<circle cx="360" cy="182" r="4.5" fill="#b1442f"/><text x="320" y="176" font-family="Arial" font-size="10.5" fill="#b1442f">Panic of 1873</text>
+<circle cx="450" cy="218" r="4.5" fill="#b1442f"/><text x="410" y="212" font-family="Arial" font-size="10.5" fill="#b1442f">"Redemption"</text>
+<circle cx="585" cy="248" r="6" fill="#3a2320"/><text x="500" y="240" font-family="Arial" font-size="10.5" font-weight="bold" fill="#3a2320">Compromise of 1877</text>
+<text x="500" y="272" font-family="Arial" font-size="10.5" fill="#6b6154">troops withdrawn</text>
+<text x="20" y="28" font-family="Arial" font-weight="bold" font-size="15" fill="#2b2b2b">1870–1877 · A PROMISE STRANGLED</text>
+<text x="90" y="290" font-family="Arial" font-size="11.5" fill="#6b6154">The amendments stayed on the page — unenforced, but there, waiting to be reclaimed.</text>
+</svg><div class="cap">Original schematic diagram (ShadowDog Digital Studios). The line is illustrative, not a data plot.</div></div></div><div class="sec"><h2>The North Lets Go</h2><p>Why did the North abandon Reconstruction? Part of the answer is exhaustion; part is that Northern commitment to Black equality had always been shallower than the moment made it look. The generation that had fought the war was aging; a new one cared less. Then, in 1873, a severe economic depression — the <b>Panic of 1873</b> — threw the nation into hard times and turned Northern attention toward its own troubles. Economic survival crowded out moral commitment.</p><p>Meanwhile a steady propaganda campaign portrayed Reconstruction governments as corrupt and the spectacle of Black men holding office as an offense against the natural order — a campaign so effective that for generations afterward Reconstruction would be taught as a disgraceful failure rather than the hopeful experiment it was. As Northern will collapsed, white Southern Democrats <b>“redeemed”</b> state after state — their word — overthrowing the interracial governments and restoring white supremacist rule, often through the very violence the federal government was no longer willing to stop.</p><div class="plate"><div class="slot"><div><div class="g">▤</div><div class="lab">Image slot · The Panic of 1873</div><div class="src">Bank-run or Wall Street panic scene, 1873, from Harper's or Frank Leslie's — public domain (Library of Congress). From the Figure Links catalog.</div></div></div><div class="cap"><b>Slot</b> Economic survival crowded out moral commitment — and a nation weary of its own conscience began to look away.</div></div></div><div class="sec"><h2>The Bargain That Ended It</h2><p>The end came through a deal. The presidential election of <b>1876</b> was a disputed, possibly stolen mess: the Democrat, Samuel Tilden, won the popular vote, but the electoral votes of a few Southern states were contested, and the outcome hung in doubt for months. The crisis was resolved behind closed doors in the <b>Compromise of 1877</b>: the Republican, Rutherford B. Hayes, was awarded the presidency, and in exchange the federal government agreed to <b>withdraw the last troops from the South</b> and abandon Reconstruction.</p><p>With the troops gone, the last interracial governments fell, and there was nothing left to protect Black citizens. The promise was not formally repealed — the Fourteenth and Fifteenth Amendments remained in the Constitution — but they were left unenforced, hollow words the nation had decided not to back with power. Over the following decades the white South built <b>Jim Crow</b>: laws that segregated every part of life, stripped Black men of the vote through poll taxes and literacy tests and fraud, and enforced the whole order with the constant threat of lynching. The second founding had been overthrown.</p><div class="pull">The promise was not repealed. It was left on the page, unenforced — and the difference between overthrown and erased is the difference between a promise broken and a promise gone. This one was only broken.</div></div><div class="sec"><h2>A New Slavery by Another Name</h2><p>For most freedpeople the betrayal was felt in the fields — and here the <b>LABOR thread</b> of this unit reaches its bitter end. Denied land of their own, most Black Southerners (and many poor whites) were trapped in <b>sharecropping</b>. A family worked a piece of a white landowner's land for a share of the crop. But the landowner controlled the accounts, the store, the credit, and the scales. Year after year, the “settling up” somehow left the sharecropper owing more than he had earned. Debt became a chain, arranged never to be paid.</p><p>How different was this from slavery? Sharecroppers could not be bought and sold, their families could not legally be broken up at auction, and they were not, formally, owned — real differences that matter. But in their daily lives — landless, in perpetual debt, bound to a white man's land with no realistic way out, the whole arrangement enforced by the threat of violence — many freedpeople found that the “freedom” of 1865 had curdled into something that rhymed painfully with the bondage they had escaped. The form had changed. Much of the substance had not.</p><div class="plate"><div class="slot"><div><div class="g">▤</div><div class="lab">Image slot · Sharecroppers in a cotton field</div><div class="src">Photograph of sharecroppers, late 19th c. — public domain (Library of Congress). From the Figure Links catalog.</div></div></div><div class="cap"><b>Slot</b> Emancipation ended the legal ownership of human beings. It did not end the South's determination to extract Black labor by force.</div></div></div><div class="sec s"><h2>Illinois and the Long View</h2><p>Unit 2 ends on a broken promise, because that is the truth and this book does not flinch from it. But notice the one thing the betrayal could not undo. The Thirteenth, Fourteenth, and Fifteenth Amendments <b>stayed in the Constitution</b> — unenforced, ignored, hollowed out, but there, on the page, waiting. Nearly a century later, a new generation — many of them grandchildren and great-grandchildren of the freedpeople betrayed in 1877 — would return to these very amendments and demand, at last, that the nation enforce them. The second founding was overthrown. It was not erased. And in Illinois, John Jones's cannon, fired sixty-two times for freedom, had not fired for nothing: the promise it celebrated was only sleeping.</p></div>
+
+ <h2 class="disp" style="color:var(--oxblood);text-transform:uppercase;font-size:26px;margin:38px 0 4px;border-bottom:4px solid var(--verm);display:inline-block;padding-bottom:6px">Do the History</h2>
+ <p style="color:var(--slate);font-style:italic">Three activities. Your work saves in this browser as you go.</p>
+
+ <div class="act">
+  <div class="ak">Activity 1 · Contextualize</div>
+  <h3>Put the moment in order</h3>
+  <div class="skill">Skill: Contextualization (PS1) — knowing what came before shapes what an event means.</div>
+  <p>Use the ▲▼ arrows to place these events in the order they happened. Then check your sequence.</p>
+  <ul class="orderlist" id="orderList"></ul>
+  <button class="btn" id="orderCheck">Check the order</button>
+  <div class="feedback" id="orderFb"></div>
+ </div>
+
+ <div class="act">
+  <div class="ak">Activity 2 · Promise or Practice?</div>
+  <h3>Sort the broken promise</h3>
+  <div class="skill">Skill: Source evaluation &amp; the unit's core lens — what America <i>said</i> vs. what it <i>did</i>.</div>
+  <p>Click each statement to drop it into the column where it belongs — the nation's <b>Promise</b> or its <b>Practice</b> in these years.</p>
+  <div class="pool" id="sortPool"></div>
+  <div class="cols2">
+   <div class="coltarget promise" id="colPromise"><div class="ch">◆ Promise — what America said it was</div></div>
+   <div class="coltarget practice" id="colPractice"><div class="ch">◆ Practice — what it actually did</div></div>
+  </div>
+  <div style="margin-top:12px"><button class="btn" id="sortCheck">Check my sort</button></div>
+  <div class="feedback" id="sortFb"></div>
+ </div>
+
+ <div class="act" style="border-top-color:var(--indigo)">
+  <div class="ak">Activity 3 · Be the Historian</div>
+  <h3>Sharecropping — slavery by another name?</h3>
+  <div class="skill">Skill: Causation &amp; comparison — this rehearses the Part II writing on your Unit 2 exam.</div>
+  <p>Slavery was abolished by the Thirteenth Amendment. Yet many historians argue that for millions of freedpeople, the system that replaced it preserved much of slavery's substance. Weigh the comparison and take a position.</p>
+  <div class="cols">
+   <div class="c free"><div class="h">The similarities are real</div>Sharecroppers were landless, bound by manufactured debt, forced to labor on the land of their former enslavers, denied honest accounting, controlled in their movement, and kept in line by the threat of violence — all while the law and the state stood with the landowner. The form changed; much of the substance did not.</div>
+   <div class="c slave"><div class="h">The differences are real</div>Sharecroppers could not be legally bought or sold. Their marriages were recognized; their children could not be auctioned away. They could, in principle, leave — and some did, which slavery never allowed. These are not small distinctions; they are the difference between owning a person and exploiting one.</div>
+  </div>
+  <p style="font-size:14.5px;color:var(--slate)"><b style="color:var(--verm)">Consider:</b> Was sharecropping “slavery by another name,” or a genuinely different system that was merely unjust? Why does the distinction matter — for the people living it, and for how we judge what emancipation actually accomplished?</p>
+  <div class="stance" id="stance"><button data-v="SameName">Slavery by another name</button><button data-v="Different">Different, but unjust</button><button data-v="Between">Something in between</button></div>
+  <div class="cer">
+   <label>Your claim + evidence + reasoning (3–5 sentences)</label>
+   <textarea id="cer" placeholder="State your position, give at least two pieces of evidence from the reading, and explain your reasoning."></textarea>
+  </div>
+  <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap"><button class="btn ghost" id="cerPrint">⎙ Print / Save my response</button></div>
+  <div class="savenote" id="saveNote">Saved automatically in this browser.</div>
+ </div>
+
+ <div class="pagenav">
+  <a href="U2_Ch9_Second_Founding.html"><div class="d">← Back to</div><div class="t">9 · The Second Founding</div></a>
+  <a class="next" href="U2_SecondHalf_Hub.html"><div class="d">Next →</div><div class="t">Unit 2 · Part Two hub</div></a>
+ </div>
+</div>
+
+<div class="seam"><div class="f"></div><div class="k"></div><div class="s"></div></div>
+<footer><div class="fk">Promise &amp; Practice</div><div style="margin-top:6px">Unit 2 · Ch. 10 · Backlash &amp; Broken Promises · ShadowDog Digital Studios</div></footer>
+
+<script>
+const KEY="pp_u2c10_v1";
+let S={order:null,sort:{},stance:'',cer:''};
+try{const r=localStorage.getItem(KEY);if(r)S=Object.assign(S,JSON.parse(r));}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+const $=s=>document.querySelector(s);
+const EVENTS=[{"id": "kk", "t": "Klan terror spreads across the Reconstruction South", "yr": "early 1870s", "o": 1}, {"id": "cx", "t": "The Colfax massacre in Louisiana", "yr": "1873", "o": 2}, {"id": "pn", "t": "The Panic of 1873 turns Northern attention inward", "yr": "1873", "o": 3}, {"id": "el", "t": "The disputed presidential election", "yr": "1876", "o": 4}, {"id": "cp", "t": "The Compromise of 1877 withdraws the last federal troops", "yr": "1877", "o": 5}];
+const SORTS=[{"id": "p1", "t": "Citizenship, equality, and the vote, written into the Constitution", "side": "promise"}, {"id": "p2", "t": "Federal power used to protect Black citizens from terror", "side": "promise"}, {"id": "p3", "t": "An interracial democracy taking its first steps in the South", "side": "promise"}, {"id": "r1", "t": "Organized terror used to drive Black voters from the polls", "side": "practice"}, {"id": "r2", "t": "The last troops withdrawn in a backroom bargain", "side": "practice"}, {"id": "r3", "t": "Sharecropping and Jim Crow bound Black labor by debt and law", "side": "practice"}];
+function shuffle(a){for(let k=a.length-1;k>0;k--){const r=Math.floor(Math.random()*(k+1));const t=a[k];a[k]=a[r];a[r]=t;}return a;}
+function renderOrder(){
+ let arr=S.order?S.order.map(id=>EVENTS.find(e=>e.id===id)):shuffle(EVENTS.slice());
+ if(!S.order){S.order=arr.map(e=>e.id);save();}
+ const ul=$('#orderList');ul.innerHTML='';
+ arr.forEach(e=>{const li=document.createElement('li');li.dataset.id=e.id;
+  li.innerHTML='<span class="yr">'+e.yr+'</span><span>'+e.t+'</span><span class="mv"><button class="arrow" data-d="-1">▲</button><button class="arrow" data-d="1">▼</button></span>';
+  ul.appendChild(li);});
+ ul.querySelectorAll('.arrow').forEach(b=>b.onclick=()=>{const li=b.closest('li');const id=li.dataset.id;const idx=S.order.indexOf(id);const d=+b.dataset.d;const ni=idx+d;if(ni<0||ni>=S.order.length)return;S.order.splice(idx,1);S.order.splice(ni,0,id);save();renderOrder();});
+}
+$('#orderCheck').onclick=()=>{let right=0;S.order.forEach((id,i)=>{const e=EVENTS.find(x=>x.id===id);const li=$('#orderList').children[i];li.classList.remove('ok','no');if(e.o===i+1){li.classList.add('ok');right++;}else li.classList.add('no');});
+ const fb=$('#orderFb');fb.className='feedback show '+(right===EVENTS.length?'ok':'no');
+ fb.innerHTML=right===EVENTS.length?'<b>All '+EVENTS.length+' in order.</b> Getting the sequence right is the heart of contextualization — what came before shapes what each event means.':'<b>'+right+' of '+EVENTS.length+' in place.</b> Green rows are correct; think about which had to happen first.';};
+function renderSort(){const pool=$('#sortPool');pool.innerHTML='';
+ SORTS.forEach(it=>{if(S.sort[it.id])return;const b=document.createElement('button');b.className='chipitem';b.textContent=it.t;b.onclick=()=>place(it.id);pool.appendChild(b);});
+ ['Promise','Practice'].forEach(side=>{const col=$('#col'+side);col.querySelectorAll('.placed').forEach(n=>n.remove());});
+ Object.keys(S.sort).forEach(id=>{const chosen=S.sort[id];if(chosen==='promise'||chosen==='practice'){const it=SORTS.find(s=>s.id===id);const col=$('#col'+(chosen==='promise'?'Promise':'Practice'));const d=document.createElement('div');d.className='placed';d.dataset.id=id;d.innerHTML='<span>'+it.t+'</span><span class="x" title="remove">✕</span>';d.querySelector('.x').onclick=()=>{delete S.sort[id];save();renderSort();};col.appendChild(d);}});}
+function place(id){const it=SORTS.find(s=>s.id===id);const pool=$('#sortPool');const wrap=document.createElement('div');wrap.style.cssText='width:100%;display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:4px 0';wrap.innerHTML='<span style="font-size:14px">“'+it.t+'” →</span>';
+ const bp=document.createElement('button');bp.className='btn';bp.style.cssText='background:var(--indigo);border-color:var(--indigo)';bp.textContent='Promise';
+ const bpr=document.createElement('button');bpr.className='btn';bpr.textContent='Practice';
+ bp.onclick=()=>{S.sort[id]='promise';save();renderSort();};bpr.onclick=()=>{S.sort[id]='practice';save();renderSort();};
+ wrap.appendChild(bp);wrap.appendChild(bpr);pool.innerHTML='';pool.appendChild(wrap);
+ SORTS.forEach(o=>{if(o.id!==id&&!S.sort[o.id]){const b=document.createElement('button');b.className='chipitem';b.textContent=o.t;b.onclick=()=>place(o.id);pool.appendChild(b);}});}
+$('#sortCheck').onclick=()=>{let right=0,total=0;SORTS.forEach(it=>{const chosen=S.sort[it.id];const nodes=document.querySelectorAll('.placed[data-id="'+it.id+'"]');if(chosen==='promise'||chosen==='practice'){total++;const ok=chosen===it.side;if(ok)right++;nodes.forEach(n=>n.classList.add(ok?'right':'wrong'));}});
+ const fb=$('#sortFb');if(total<SORTS.length){fb.className='feedback show no';fb.innerHTML='Place all '+SORTS.length+' statements first — '+total+' of '+SORTS.length+' sorted.';return;}
+ fb.className='feedback show '+(right===SORTS.length?'ok':'no');
+ fb.innerHTML=right===SORTS.length?'<b>Perfect.</b> The gap between the Promise statements and the Practice statements <i>is</i> this whole unit.':'<b>'+right+' of '+SORTS.length+' correct.</b> Red means it belongs in the other column. Ask: is this what America <i>claimed</i>, or what it actually <i>did</i>?';};
+function renderStance(){$('#stance').querySelectorAll('button').forEach(b=>b.classList.toggle('sel',b.dataset.v===S.stance));}
+$('#stance').querySelectorAll('button').forEach(b=>b.onclick=()=>{S.stance=b.dataset.v;save();renderStance();});
+const cer=$('#cer');cer.value=S.cer||'';cer.addEventListener('input',()=>{S.cer=cer.value;save();$('#saveNote').textContent='Saved · '+cer.value.trim().split(/\s+/).filter(Boolean).length+' words';});
+$('#cerPrint').onclick=()=>window.print();
+$('#textSize').onclick=()=>{document.body.classList.toggle('big');};
+$('#reset').onclick=()=>{if(confirm('Clear your work on this page?')){S={order:null,sort:{},stance:'',cer:''};save();location.reload();}};
+renderOrder();renderSort();renderStance();
+</script>
+
+</body>
+</html>

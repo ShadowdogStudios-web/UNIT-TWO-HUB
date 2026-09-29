@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ch. 7 · The Union Breaks — Growth &amp; Conflict</title>
+<style>
+:root{
+ --accent:#b1442f;--accent2:#8a1f16;
+ --ink:#1a1a1a;--slate:#5f5f5f;--mut:#8c8c8c;
+ --paper:#ffffff;--bone:#faf8f4;--card:#ffffff;--panel:#faf8f4;--line:#e7e2d8;--hair:#efeae1;
+ /* legacy names kept so inline refs still resolve, remapped to the clean palette */
+ --indigo:#1a1a1a;--indigo2:#b1442f;--oxblood:#8a1f16;--oxblood2:#b1442f;--verm:#b1442f;--amber:#b1442f;
+ --base:17px;
+}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;line-height:1.62;font-size:var(--base);-webkit-font-smoothing:antialiased}
+body.big{--base:20px}
+.disp{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+.seam{height:3px;background:var(--accent)}.seam .f,.seam .s,.seam .k{display:none}
+.topbar{background:#fff;border-bottom:1px solid var(--line);color:var(--ink);padding:11px 18px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;position:sticky;top:0;z-index:20}
+.topbar a{color:var(--accent);text-decoration:none;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:700}
+.topbar .tools button{font:inherit;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#fff;color:var(--accent);border:1px solid var(--accent);border-radius:18px;padding:6px 12px;cursor:pointer;margin-left:6px}
+.topbar .tools button:hover{background:var(--accent);color:#fff}
+/* masthead -> clean white hero */
+.mast{background:#fff;color:var(--ink);position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.mast .inner{max-width:900px;margin:0 auto;padding:52px 22px 38px}
+.mast .kick{font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.mast .no{position:absolute;right:18px;top:-6px;font-weight:200;font-size:190px;color:rgba(177,68,47,.07);line-height:1}
+.mast h1{font-weight:200;text-transform:none;line-height:1.0;font-size:clamp(34px,6.4vw,62px);letter-spacing:-.02em;margin:16px 0 12px;color:var(--ink)}
+.mast .subt{font-size:clamp(15px,2.3vw,19px);color:var(--slate);font-style:normal}
+.mast .threads{margin-top:18px;display:flex;gap:8px;flex-wrap:wrap}
+.mast .threads span{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;background:#fff;border:1px solid var(--line);color:var(--slate);border-radius:20px;padding:5px 12px}
+.mast .dq{margin:22px 0 0;padding:16px 18px;border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;background:var(--panel);font-size:17px;color:var(--ink)}
+.mast .dq b{color:var(--accent);text-transform:uppercase;letter-spacing:.12em;font-size:11px;display:block;margin-bottom:5px;font-weight:700}
+.wrap{max-width:820px;margin:0 auto;padding:30px 20px 44px}
+/* hook -> light panel */
+.hook{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:12px;overflow:hidden;margin-bottom:28px}
+.hook .txt{padding:22px 24px}
+.hook .k{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.hook p{margin:8px 0 0;font-size:18px;color:var(--ink);line-height:1.5}
+/* section */
+.sec{margin:36px 0}
+.sec h2{font-weight:600;text-transform:none;letter-spacing:-.01em;color:var(--ink);font-size:clamp(21px,3vw,28px);margin:0 0 10px;padding-bottom:8px;border-bottom:2px solid var(--accent);display:inline-block}
+.sec.s h2{color:var(--ink)}
+.sec p{margin:13px 0}
+.sec b{color:var(--ink);font-weight:700}
+.pull{font-weight:300;color:var(--ink);font-size:clamp(21px,3.4vw,28px);line-height:1.3;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:20px 0;margin:26px 0;letter-spacing:-.01em}
+/* image plate */
+.plate{margin:18px 0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--card)}
+.plate .slot{background:var(--panel);border-bottom:1px solid var(--line);min-height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;color:var(--slate)}
+.plate .slot .g{font-size:30px;color:var(--accent);opacity:.7}
+.plate .slot .lab{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-top:8px}
+.plate .slot .src{font-size:12px;margin-top:4px;color:var(--mut)}
+.plate img{display:block;width:100%;height:auto}
+.plate .cap{font-size:12.5px;color:var(--mut);padding:11px 16px;line-height:1.4;background:var(--panel)}
+.plate .cap b{font-style:normal;color:var(--accent);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700}
+.svgwrap{margin:18px 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+.svgwrap svg{display:block;width:100%;height:auto}
+.svgwrap .cap{font-size:12.5px;color:var(--mut);margin-top:10px;text-align:center}
+/* activity card */
+.act{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:12px;padding:24px 26px;margin:24px 0}
+.act .ak{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.act h3{font-weight:600;color:var(--ink);font-size:22px;margin:6px 0 4px}
+.act .skill{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);font-weight:700}
+.act p{margin:10px 0}
+/* sort activity */
+.pool{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chipitem{font-size:14.5px;border:1px solid var(--line);background:#fff;border-radius:9px;padding:9px 13px;cursor:pointer;line-height:1.35;transition:border-color .12s,background .12s}
+.chipitem:hover{background:var(--panel);border-color:var(--accent)}
+.chipitem.done{opacity:.4;cursor:default;pointer-events:none}
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+@media(max-width:560px){.cols2{grid-template-columns:1fr}}
+.coltarget{border:2px dashed var(--line);border-radius:10px;min-height:90px;padding:12px}
+.coltarget.promise{border-color:var(--accent)}.coltarget.practice{border-color:#9a9a9a}
+.coltarget .ch{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:8px}
+.coltarget.promise .ch{color:var(--accent)}.coltarget.practice .ch{color:#6b6b6b}
+.placed{font-size:14px;border-radius:8px;padding:8px 11px;margin:6px 0;background:var(--panel);border:1px solid var(--line);display:flex;justify-content:space-between;gap:8px;align-items:center}
+.placed .x{cursor:pointer;color:var(--accent);font-weight:700}
+.placed.right{background:#edf5ee;border-color:#9cc3a2}.placed.wrong{background:#f7ece8;border-color:#d7a89f}
+/* order activity */
+.orderlist{list-style:none;margin:12px 0;padding:0}
+.orderlist li{background:#fff;border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:9px;padding:11px 13px;margin:8px 0;display:flex;align-items:center;gap:10px}
+.orderlist li .mv{margin-left:auto;display:flex;gap:5px}
+.orderlist li button.arrow{font-weight:700;border:1px solid var(--accent);background:#fff;color:var(--accent);border-radius:7px;width:30px;height:30px;cursor:pointer}
+.orderlist li button.arrow:hover{background:var(--accent);color:#fff}
+.orderlist li .yr{font-size:12px;color:var(--mut);min-width:64px}
+.orderlist li.ok{border-left-color:#3f8a56;background:#edf5ee}
+.orderlist li.no{border-left-color:var(--accent);background:#f7ece8}
+/* be the historian */
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:16px 0;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+@media(max-width:560px){.cols{grid-template-columns:1fr}}
+.cols .c{padding:18px 20px}
+.cols .free{background:var(--panel);border-right:3px solid var(--accent)}
+.cols .slave{background:#fff}
+@media(max-width:560px){.cols .free{border-right:none;border-bottom:3px solid var(--accent)}}
+.cols .c .h{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:6px}
+.cols .free .h{color:var(--accent)}.cols .slave .h{color:#6b6b6b}
+.stance{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.stance button{font:inherit;font-size:15px;border:1px solid var(--accent);background:#fff;color:var(--accent);border-radius:9px;padding:10px 15px;cursor:pointer}
+.stance button.sel{background:var(--accent);color:#fff}
+.cer label{display:block;font-weight:700;color:var(--accent);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;margin:14px 0 5px}
+.cer textarea{width:100%;font:inherit;font-size:16px;padding:12px 14px;border:1px solid var(--line);border-radius:9px;min-height:110px;resize:vertical;background:#fff;color:var(--ink)}
+.cer textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 2px rgba(177,68,47,.12)}
+.btn{font:inherit;font-weight:700;letter-spacing:.04em;text-transform:uppercase;font-size:13px;padding:12px 22px;border-radius:9px;border:1px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+.btn:hover{opacity:.9}
+.btn.ghost{background:#fff;color:var(--accent);border-color:var(--accent)}
+.feedback{margin-top:12px;font-size:14.5px;padding:11px 14px;border-radius:9px;display:none}
+.feedback.show{display:block}.feedback.ok{background:#edf5ee;border:1px solid #9cc3a2}.feedback.no{background:#f7ece8;border:1px solid #d7a89f}
+.savenote{font-size:12.5px;color:var(--mut);margin-top:8px}
+.pagenav{display:flex;justify-content:space-between;gap:12px;margin:38px 0 0;flex-wrap:wrap}
+.pagenav a{flex:1;min-width:180px;text-decoration:none;border:1px solid var(--line);border-radius:12px;padding:16px 18px;background:var(--card);color:var(--ink);transition:border-color .12s}
+.pagenav a:hover{border-color:var(--accent)}
+.pagenav a .d{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);font-weight:700}
+.pagenav a .t{font-weight:600;margin-top:4px;color:var(--ink)}
+.pagenav a.next{text-align:right;border-color:var(--line)}
+footer{background:#fff;border-top:1px solid var(--line);color:var(--slate);text-align:center;padding:26px;font-size:12.5px}
+footer .fk{letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:700}
+@media print{.topbar,.tools,.pagenav,footer,.stance,.btn{display:none!important}.seam{display:none}}
+@media(max-width:600px){.topbar{position:static}.mast .inner{padding:38px 18px 28px}}
+</style>
+</head>
+<body>
+<div class="seam"><div class="f"></div><div class="k"></div><div class="s"></div></div>
+<div class="topbar"><a href="U2_SecondHalf_Hub.html">← Unit 2 · Part Two</a><div class="tools"><button id="textSize">A+ Text</button><button id="reset">Reset activities</button></div></div>
+<div class="mast"><div class="no disp">7</div><div class="inner">
+ <div class="kick">Unit 2 · Growth &amp; Conflict · Chapter 7</div>
+ <h1>The Union Breaks</h1>
+ <div class="subt">Secession, Sumter, and the start of the Civil War · 1860–1862</div>
+ <div class="threads"><span>Thread · Voice</span><span>Thread · Belonging</span><span>Skill · Sourcing</span></div>
+ <div class="dq"><b>Driving question</b>The South said it was fighting for liberty and states' rights. Its own leaders, in their own words at the time, said something more specific. When a myth and the documents disagree, how does a historian decide what a war was about?</div>
+</div></div>
+
+<div class="wrap">
+ <div class="hook">
+  <div class="plate" style="margin:0;border:none;border-radius:0">
+   <div class="slot"><div><div class="g">▤</div><div class="lab">Image slot · The bombardment of Fort Sumter, 1861</div><div class="src">Currier &amp; Ives lithograph of the bombardment of Fort Sumter — public domain (Library of Congress). From the Figure Links catalog.</div></div></div>
+  </div>
+  <div class="txt"><div class="k">The moment</div>
+   <p>At half past four on the morning of April 12, 1861, a single shell rose over Charleston harbor, arced through the dark, and burst above a small island fort. With that flash of light, the argument became a war. For thirty-four hours Confederate guns pounded Fort Sumter until its commander surrendered. No one was killed in the bombardment itself — a strange, almost ceremonial beginning to the bloodiest war in American history. But the meaning was total. The United States had been fired upon. The fire bell Jefferson heard ringing forty years earlier was now a cannonade.</p></div>
+ </div>
+
+ <p>This chapter is about how the most carefully built government in the world came apart — and about the gap, one last time, between what Americans told themselves and what was actually true. The South said it was fighting for liberty and self-government. Its own leaders said something more specific. Recovering what they actually said, against the comforting myths that grew up later, is one of the most important things this unit asks of you.</p><div class="sec"><h2>A Nation Dissolves</h2><p>Lincoln won the presidency in November 1860 without a single Southern electoral vote. He had promised not to touch slavery where it already existed, but he was firmly against its expansion, and that was enough. <b>South Carolina seceded first</b>, in December 1860, before Lincoln had even taken office. Within weeks Mississippi, Florida, Alabama, Georgia, Louisiana, and Texas followed, and in February 1861 the seven formed the <b>Confederate States of America</b>, with its own president, <b>Jefferson Davis</b> — the same man who, decades earlier, had served in the Black Hawk War alongside a young Abraham Lincoln.</p><p>Secession was breathtaking: the South was declaring that the United States was not a permanent nation but a voluntary club any member could quit after losing an election. Lincoln rejected this absolutely — the Union was older than the states and could not be broken by one section's unhappiness. When the Confederates fired on Sumter, four more states — Virginia, North Carolina, Tennessee, and Arkansas — joined rather than send troops against fellow Southerners. The “more perfect Union” had failed its ultimate test: it could not peacefully contain the contradiction it had been built around.</p><div class="svgwrap"><svg viewBox="0 0 640 320" role="img" aria-label="Secession in two waves, 1860-1861">
+<rect width="640" height="320" fill="#fbf6ea"/>
+<rect x="60" y="70" width="250" height="200" rx="6" fill="#b1442f" opacity="0.16" stroke="#b1442f" stroke-width="2"/>
+<text x="185" y="96" font-family="Arial" font-weight="bold" font-size="13" fill="#b1442f" text-anchor="middle">FIRST WAVE · Dec 1860 – Feb 1861</text>
+<text x="185" y="120" font-family="Arial" font-size="12" fill="#b1442f" text-anchor="middle">after Lincoln's election</text>
+<text x="185" y="150" font-family="Arial" font-size="11.5" fill="#3a2320" text-anchor="middle">SC · MS · FL · AL</text>
+<text x="185" y="168" font-family="Arial" font-size="11.5" fill="#3a2320" text-anchor="middle">GA · LA · TX</text>
+<text x="185" y="200" font-family="Arial" font-weight="bold" font-size="12" fill="#b1442f" text-anchor="middle">form the Confederacy</text>
+<text x="185" y="216" font-family="Arial" font-size="11" fill="#3a2320" text-anchor="middle">Jefferson Davis, president</text>
+<rect x="345" y="70" width="235" height="200" rx="6" fill="#8a4a2a" opacity="0.14" stroke="#8a4a2a" stroke-width="2"/>
+<text x="462" y="96" font-family="Arial" font-weight="bold" font-size="13" fill="#7a3d22" text-anchor="middle">SECOND WAVE · after Sumter</text>
+<text x="462" y="120" font-family="Arial" font-size="12" fill="#7a3d22" text-anchor="middle">April 1861</text>
+<text x="462" y="150" font-family="Arial" font-size="11.5" fill="#4a2413" text-anchor="middle">VA · NC</text>
+<text x="462" y="168" font-family="Arial" font-size="11.5" fill="#4a2413" text-anchor="middle">TN · AR</text>
+<text x="462" y="205" font-family="Arial" font-size="11" fill="#4a2413" text-anchor="middle">joined rather than send</text>
+<text x="462" y="221" font-family="Arial" font-size="11" fill="#4a2413" text-anchor="middle">troops against the South</text>
+<text x="322" y="175" font-family="Arial" font-weight="bold" font-size="26" fill="#b1442f" text-anchor="middle">→</text>
+<text x="20" y="28" font-family="Arial" font-weight="bold" font-size="15" fill="#2b2b2b">1860–61 · A NATION DISSOLVES IN TWO WAVES</text>
+<text x="20" y="300" font-family="Arial" font-size="12" fill="#6b6154">Eleven states in all. Fort Sumter (Apr 12, 1861) turned the argument into a war.</text>
+</svg><div class="cap">Original schematic diagram (ShadowDog Digital Studios). Groupings are stylized, not a true map.</div></div></div><div class="sec"><h2>Why They Said They Were Leaving</h2><p>For more than a century afterward, many Americans explained the war as a noble struggle over <b>“states' rights”</b> in which slavery was only incidental. This explanation has a name — the <b>Lost Cause</b> — and it is contradicted by the documents the secessionists themselves wrote at the time.</p><p>When the seceding states explained their reasons, in official <b>declarations of causes</b>, they were remarkably direct: they were leaving to protect slavery. Mississippi's declaration stated flatly that its position was “thoroughly identified with the institution of slavery.” State after state named the protection of slavery as the central cause. And the Confederacy's own vice president, <b>Alexander Stephens</b>, removed all doubt weeks before the war: the old Union, he said, had rested on the mistaken idea that all men are created equal; the new Confederacy's <b>“cornerstone”</b> rested on the opposite truth — that slavery and the subordination of the Black race was the natural and proper condition of things. The “states' right” the South was defending was, above all, the right to own human beings.</p><div class="plate"><div class="slot"><div><div class="g">▤</div><div class="lab">Image slot · Alexander Stephens, Confederate vice president</div><div class="src">Portrait of Alexander H. Stephens — public domain (Library of Congress). From the Figure Links catalog.</div></div></div><div class="cap"><b>Slot</b> His “Cornerstone Speech” named slavery and racial inequality as the new nation's founding principle — in his own words, at the time.</div></div></div><div class="sec"><h2>Two Countries, Two Kinds of Strength</h2><p>The two sides were profoundly unequal, though not in ways that guarantee victory. The <b>North</b> held more than twice the population, the vast majority of factories, railroads, banks, and shipping, the existing government, and the navy. The <b>South</b> did not need to conquer the North; it only needed to survive — to make the war so long and costly that the North would give up, the same strategy that had won independence from a stronger Britain. It fought on its own ground, and early on it had the better generals.</p><p>Both sides expected a short, glorious war. At the first major battle, <b>Bull Run</b> in the summer of 1861, civilians rode out from Washington with picnic baskets to watch the spectacle — and fled in terror as the reality of mass slaughter revealed itself. There would be no short war. There would be four years of it, and more than six hundred thousand dead.</p><div class="pull">The country had imagined a glorious afternoon. It had begun an apocalypse — a war that would kill more Americans than every other American war combined.</div></div><div class="sec s"><h2>Illinois Goes to War</h2><p>No state threw itself into the Union cause more fully than Illinois — Lincoln's own state, the prairie that had nearly become a slave state a generation before. Illinois sent roughly <b>a quarter of a million men</b> into the Union armies. At its southern tip, where the Ohio meets the Mississippi, the muddy town of <b>Cairo</b> became one of the most important Union bases in the country. And it was from Illinois that the war produced its greatest soldier: <b>Ulysses S. Grant</b> — the same man who had marched into Mexico and called that war unjust — was working in his family's leather-goods store in Galena, going nowhere, when the war gave him a purpose. The state that had come within two thousand votes of legalizing slavery in 1824 now stood at the very center of the war to destroy it.</p></div>
+
+ <h2 class="disp" style="color:var(--oxblood);text-transform:uppercase;font-size:26px;margin:38px 0 4px;border-bottom:4px solid var(--verm);display:inline-block;padding-bottom:6px">Do the History</h2>
+ <p style="color:var(--slate);font-style:italic">Three activities. Your work saves in this browser as you go.</p>
+
+ <div class="act">
+  <div class="ak">Activity 1 · Contextualize</div>
+  <h3>Put the moment in order</h3>
+  <div class="skill">Skill: Contextualization (PS1) — knowing what came before shapes what an event means.</div>
+  <p>Use the ▲▼ arrows to place these events in the order they happened. Then check your sequence.</p>
+  <ul class="orderlist" id="orderList"></ul>
+  <button class="btn" id="orderCheck">Check the order</button>
+  <div class="feedback" id="orderFb"></div>
+ </div>
+
+ <div class="act">
+  <div class="ak">Activity 2 · Promise or Practice?</div>
+  <h3>Sort the coming of the war</h3>
+  <div class="skill">Skill: Source evaluation &amp; the unit's core lens — what America <i>said</i> vs. what it <i>did</i>.</div>
+  <p>Click each statement to drop it into the column where it belongs — the nation's <b>Promise</b> or its <b>Practice</b> in these years.</p>
+  <div class="pool" id="sortPool"></div>
+  <div class="cols2">
+   <div class="coltarget promise" id="colPromise"><div class="ch">◆ Promise — what America said it was</div></div>
+   <div class="coltarget practice" id="colPractice"><div class="ch">◆ Practice — what it actually did</div></div>
+  </div>
+  <div style="margin-top:12px"><button class="btn" id="sortCheck">Check my sort</button></div>
+  <div class="feedback" id="sortFb"></div>
+ </div>
+
+ <div class="act" style="border-top-color:var(--indigo)">
+  <div class="ak">Activity 3 · Be the Historian</div>
+  <h3>What was the war really about?</h3>
+  <div class="skill">Skill: Sourcing — weighing documents against later memory — this rehearses the Part II writing on your Unit 2 exam.</div>
+  <p>Few questions in American history have been argued more. The good news: the people who started the war left a written record of their reasons. Weigh that record against the story told later.</p>
+  <div class="cols">
+   <div class="c free"><div class="h">The documentary record</div>The secession declarations of Mississippi, South Carolina, Georgia, and Texas repeatedly and explicitly name the protection of slavery as their central cause. Stephens's “Cornerstone Speech” named slavery and racial inequality as the new nation's founding principle. The Confederate constitution even forbade its member states from abolishing slavery — hardly the act of a movement devoted to local choice.</div>
+   <div class="c slave"><div class="h">The Lost Cause version</div>Written a generation later, it holds that the South seceded over states' rights and constitutional principle, with slavery a minor or incidental factor — a war about liberty and local self-government against federal tyranny. It became the dominant story in much of the country for a century.</div>
+  </div>
+  <p style="font-size:14.5px;color:var(--slate)"><b style="color:var(--verm)">Consider:</b> When the people who made a decision wrote down their reasons at the time, how much weight should those reasons carry against an interpretation invented later? And ask the follow-up the sources demand: states' rights to do what?</p>
+  <div class="stance" id="stance"><button data-v="Documents">Trust the documents</button><button data-v="States'Rights">It was states' rights</button><button data-v="Both">A war over slavery framed later as states' rights</button></div>
+  <div class="cer">
+   <label>Your claim + evidence + reasoning (3–5 sentences)</label>
+   <textarea id="cer" placeholder="State your position, give at least two pieces of evidence from the reading, and explain your reasoning."></textarea>
+  </div>
+  <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap"><button class="btn ghost" id="cerPrint">⎙ Print / Save my response</button></div>
+  <div class="savenote" id="saveNote">Saved automatically in this browser.</div>
+ </div>
+
+ <div class="pagenav">
+  <a href="U2_Ch6_Bleeding_Kansas.html"><div class="d">← Back to</div><div class="t">6 · Bleeding Kansas</div></a>
+  <a class="next" href="U2_Ch8_New_Birth.html"><div class="d">Next →</div><div class="t">8 · A New Birth of Freedom</div></a>
+ </div>
+</div>
+
+<div class="seam"><div class="f"></div><div class="k"></div><div class="s"></div></div>
+<footer><div class="fk">Promise &amp; Practice</div><div style="margin-top:6px">Unit 2 · Ch. 7 · The Union Breaks · ShadowDog Digital Studios</div></footer>
+
+<script>
+const KEY="pp_u2c7_v1";
+let S={order:null,sort:{},stance:'',cer:''};
+try{const r=localStorage.getItem(KEY);if(r)S=Object.assign(S,JSON.parse(r));}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+const $=s=>document.querySelector(s);
+const EVENTS=[{"id": "el", "t": "Lincoln elected without a single Southern electoral vote", "yr": "Nov 1860", "o": 1}, {"id": "sc", "t": "South Carolina secedes", "yr": "Dec 1860", "o": 2}, {"id": "cf", "t": "Seven states form the Confederacy under Jefferson Davis", "yr": "Feb 1861", "o": 3}, {"id": "fs", "t": "Confederate guns fire on Fort Sumter", "yr": "Apr 1861", "o": 4}, {"id": "br", "t": "The First Battle of Bull Run", "yr": "Jul 1861", "o": 5}];
+const SORTS=[{"id": "p1", "t": "A “more perfect Union” built to endure and balance its parts", "side": "promise"}, {"id": "p2", "t": "The South's claim that it fought only for states' rights", "side": "promise"}, {"id": "p3", "t": "A short, glorious war both sides expected to win quickly", "side": "promise"}, {"id": "r1", "t": "The Union split along the exact seam the Constitution had papered over", "side": "practice"}, {"id": "r2", "t": "Secession declarations named the protection of slavery as the cause", "side": "practice"}, {"id": "r3", "t": "Four years of war and more than 600,000 dead", "side": "practice"}];
+function shuffle(a){for(let k=a.length-1;k>0;k--){const r=Math.floor(Math.random()*(k+1));const t=a[k];a[k]=a[r];a[r]=t;}return a;}
+function renderOrder(){
+ let arr=S.order?S.order.map(id=>EVENTS.find(e=>e.id===id)):shuffle(EVENTS.slice());
+ if(!S.order){S.order=arr.map(e=>e.id);save();}
+ const ul=$('#orderList');ul.innerHTML='';
+ arr.forEach(e=>{const li=document.createElement('li');li.dataset.id=e.id;
+  li.innerHTML='<span class="yr">'+e.yr+'</span><span>'+e.t+'</span><span class="mv"><button class="arrow" data-d="-1">▲</button><button class="arrow" data-d="1">▼</button></span>';
+  ul.appendChild(li);});
+ ul.querySelectorAll('.arrow').forEach(b=>b.onclick=()=>{const li=b.closest('li');const id=li.dataset.id;const idx=S.order.indexOf(id);const d=+b.dataset.d;const ni=idx+d;if(ni<0||ni>=S.order.length)return;S.order.splice(idx,1);S.order.splice(ni,0,id);save();renderOrder();});
+}
+$('#orderCheck').onclick=()=>{let right=0;S.order.forEach((id,i)=>{const e=EVENTS.find(x=>x.id===id);const li=$('#orderList').children[i];li.classList.remove('ok','no');if(e.o===i+1){li.classList.add('ok');right++;}else li.classList.add('no');});
+ const fb=$('#orderFb');fb.className='feedback show '+(right===EVENTS.length?'ok':'no');
+ fb.innerHTML=right===EVENTS.length?'<b>All '+EVENTS.length+' in order.</b> Getting the sequence right is the heart of contextualization — what came before shapes what each event means.':'<b>'+right+' of '+EVENTS.length+' in place.</b> Green rows are correct; think about which had to happen first.';};
+function renderSort(){const pool=$('#sortPool');pool.innerHTML='';
+ SORTS.forEach(it=>{if(S.sort[it.id])return;const b=document.createElement('button');b.className='chipitem';b.textContent=it.t;b.onclick=()=>place(it.id);pool.appendChild(b);});
+ ['Promise','Practice'].forEach(side=>{const col=$('#col'+side);col.querySelectorAll('.placed').forEach(n=>n.remove());});
+ Object.keys(S.sort).forEach(id=>{const chosen=S.sort[id];if(chosen==='promise'||chosen==='practice'){const it=SORTS.find(s=>s.id===id);const col=$('#col'+(chosen==='promise'?'Promise':'Practice'));const d=document.createElement('div');d.className='placed';d.dataset.id=id;d.innerHTML='<span>'+it.t+'</span><span class="x" title="remove">✕</span>';d.querySelector('.x').onclick=()=>{delete S.sort[id];save();renderSort();};col.appendChild(d);}});}
+function place(id){const it=SORTS.find(s=>s.id===id);const pool=$('#sortPool');const wrap=document.createElement('div');wrap.style.cssText='width:100%;display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:4px 0';wrap.innerHTML='<span style="font-size:14px">“'+it.t+'” →</span>';
+ const bp=document.createElement('button');bp.className='btn';bp.style.cssText='background:var(--indigo);border-color:var(--indigo)';bp.textContent='Promise';
+ const bpr=document.createElement('button');bpr.className='btn';bpr.textContent='Practice';
+ bp.onclick=()=>{S.sort[id]='promise';save();renderSort();};bpr.onclick=()=>{S.sort[id]='practice';save();renderSort();};
+ wrap.appendChild(bp);wrap.appendChild(bpr);pool.innerHTML='';pool.appendChild(wrap);
+ SORTS.forEach(o=>{if(o.id!==id&&!S.sort[o.id]){const b=document.createElement('button');b.className='chipitem';b.textContent=o.t;b.onclick=()=>place(o.id);pool.appendChild(b);}});}
+$('#sortCheck').onclick=()=>{let right=0,total=0;SORTS.forEach(it=>{const chosen=S.sort[it.id];const nodes=document.querySelectorAll('.placed[data-id="'+it.id+'"]');if(chosen==='promise'||chosen==='practice'){total++;const ok=chosen===it.side;if(ok)right++;nodes.forEach(n=>n.classList.add(ok?'right':'wrong'));}});
+ const fb=$('#sortFb');if(total<SORTS.length){fb.className='feedback show no';fb.innerHTML='Place all '+SORTS.length+' statements first — '+total+' of '+SORTS.length+' sorted.';return;}
+ fb.className='feedback show '+(right===SORTS.length?'ok':'no');
+ fb.innerHTML=right===SORTS.length?'<b>Perfect.</b> The gap between the Promise statements and the Practice statements <i>is</i> this whole unit.':'<b>'+right+' of '+SORTS.length+' correct.</b> Red means it belongs in the other column. Ask: is this what America <i>claimed</i>, or what it actually <i>did</i>?';};
+function renderStance(){$('#stance').querySelectorAll('button').forEach(b=>b.classList.toggle('sel',b.dataset.v===S.stance));}
+$('#stance').querySelectorAll('button').forEach(b=>b.onclick=()=>{S.stance=b.dataset.v;save();renderStance();});
+const cer=$('#cer');cer.value=S.cer||'';cer.addEventListener('input',()=>{S.cer=cer.value;save();$('#saveNote').textContent='Saved · '+cer.value.trim().split(/\s+/).filter(Boolean).length+' words';});
+$('#cerPrint').onclick=()=>window.print();
+$('#textSize').onclick=()=>{document.body.classList.toggle('big');};
+$('#reset').onclick=()=>{if(confirm('Clear your work on this page?')){S={order:null,sort:{},stance:'',cer:''};save();location.reload();}};
+renderOrder();renderSort();renderStance();
+</script>
+
+</body>
+</html>
